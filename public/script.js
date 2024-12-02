@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch('/tweets');
         const data = await response.json();
         const tweetsContainer = document.getElementById('tweets-container');
+        const hashtag = '#OpenSourceHumanities';
 
         data.data.forEach(tweet => {
             const tweetElement = document.createElement('div');
