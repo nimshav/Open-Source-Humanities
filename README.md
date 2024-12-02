@@ -18,7 +18,7 @@ A brief description of your project, its purpose, and its main features. A more 
 ---
 
 ## About
-This project collects and displays tweets published under the hashtaf #OpenSourceHumanities with the ultimate goal of provifing an alternative, open-source academy in accordance with the anarchist principle of "doocracy" -- the government of those who do.
+This project collects and displays tweets published under the hashtaf #OpenSourceHumanities with the ultimate goal of providing an alternative, open-source academy in accordance with the anarchist principle of "doocracy" -- the government of those who do.
 
 
 
