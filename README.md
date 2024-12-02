@@ -54,6 +54,7 @@ Step-by-step guide to install and set up your project locally:
 4. Developing "Tweet Articles" by evenveloping specific tweets with new interpretations and narrations (optional).
 5. Providing a venue for online courses, worshops and webinars (optional).
 6. Providing a venuew for community members' specialized services such as editing, guiding reserach, etc (optional).
+7. Providing a peer reviewed venue for short academic publications that seek to make humanities research more open and accessible to the public (optional).
 
 ---
 
