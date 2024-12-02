@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A brief description of your project, its purpose, and its main features. A more complete guide will be developed in accordance with community needs and responsivness. 
+A more complete guide will be developed in accordance with community needs and responsivness. 
 
 ---
 
