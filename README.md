@@ -25,7 +25,7 @@ This project collects and displays tweets published under the hashtaf #OpenSourc
 ---
 
 ## Getting Started
-Familiarize yourself with AI software development, the Git system, the languages you intend to use -- their histories and applications, the open source community and the guifing principles of "doocracy" and "benevolent dictatorship".
+Familiarize yourself with AI software development, the Git system, the languages you intend to use -- their histories and applications, the open source community, and the guiding principles of "doocracy" and "benevolent dictatorship".
 
 ### Prerequisites
 
@@ -42,3 +42,11 @@ Step-by-step guide to install and set up your project locally:
 4. Clone project to your local machine
 5. Open the repository with editor
 6. Edit
+
+### Licence
+- For the code: GNU GPL.
+- For the content: CC BY-NC-SA 4.0 (ATTRIBUTION-NONCOMMERCIAL-SHAREALIKE 4.0 INTERNATIONAL).
+
+### Contact
+Write me directly to: nimshav@icloud.com.
+
