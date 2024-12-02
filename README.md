@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A brief description of your project, its purpose, and its main features.
+A brief description of your project, its purpose, and its main features. A more complete guide will be developed in accordance with community needs and responsivness. 
 
 ---
 
@@ -36,15 +36,9 @@ List software or tools needed to run the project:
 
 Step-by-step guide to install and set up your project locally:
 
-```bash
-# Clone the repository
-git clone https://github.com/username/project-name.git
-
-# Navigate to the project directory
-cd project-name
-
-# Install dependencies
-npm install # or pip install -r requirements.txt
-
-# Start the project
-npm start
+1. Install GitHub for desktop
+2. Install Node.JS
+3. Install code editor such as Visual Studio
+4. Clone project to your local machine
+5. Open the repository with editor
+6. Edit
