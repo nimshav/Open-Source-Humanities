@@ -1,3 +1,6 @@
+# Ignore Oracle JDK
+public/Oracle_JDK-23.jdk
+
 # macOS system files and directories
 .DS_Store
 .AppleDouble
