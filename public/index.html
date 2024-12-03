@@ -10,29 +10,27 @@
 <body>
     <h1>Open-Source Humanities Hub</h1>
     
-    <!-- Navigation for Tabs -->
-    <div class="tabs">
-        <button class="tab-button" onclick="showTab('tweets-tab')">#OpenSourceHumanities Tweets</button>
+    $1        <button class="tab-button" onclick="showTab('tweets-tab')">#OpenSourceHumanities Tweets</button>
         <button class="tab-button" onclick="showTab('venues-tab')">OpenSourceHumanities Community Venues</button>
-    </div>
+        <button class="tab-button" onclick="showTab('people-tab')">People</button>
+$3
 
     <!-- Tweets Tab Content -->
     <div id="tweets-tab" class="tab-content">
         <h2>#OpenSourceHumanities Tweets</h2>
+        <button id="fetch-tweets-button" onclick="fetchTweets()">Fetch Latest Tweets</button>
         <div id="tweets-container" aria-live="polite" aria-label="Recent tweets about #OpenSourceHumanities"></div>
     </div>
 
-    <!-- Community Venues Tab Content -->
-    <div id="venues-tab" class="tab-content" style="display: none;">
-        <h2>OpenSourceHumanities Community Venues</h2>
-        <div id="venues-container">
-            <ul>
-                <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank">Acid Horizon on TuneIn</a></li>
-                <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
-                <li><a href="https://lacancircle.com.au/" target="_blank">The Lacan Circle of Australia</a></li>
-                <li><a href="https://www.moralminority.net/" target="_blank">Moral Minority</a></li>
-            </ul>
+    $1
+
+    <!-- People Tab Content -->
+    <div id="people-tab" class="tab-content" style="display: none;">
+        <h2>People</h2>
+        <div id="people-container">
+            <p>Information about people involved in the OpenSourceHumanities movement will be here.</p>
         </div>
+    </div>
     </div>
 
     <noscript>
@@ -49,6 +47,33 @@
             // Show the selected tab content
             const activeTab = document.getElementById(tabId);
             activeTab.style.display = 'block';
+        }
+
+        // Function to fetch tweets when the button is clicked
+        async function fetchTweets() {
+            const tweetsContainer = document.getElementById('tweets-container');
+            tweetsContainer.innerHTML = '<p>Loading tweets...</p>';
+            try {
+                const response = await fetch('/api/tweets');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch tweets');
+                }
+                const data = await response.json();
+                tweetsContainer.innerHTML = '';
+                if (data.data && data.data.length > 0) {
+                    data.data.forEach(tweet => {
+                        const tweetElement = document.createElement('div');
+                        tweetElement.className = 'tweet';
+                        tweetElement.innerHTML = `<p>${tweet.text}</p>`;
+                        tweetsContainer.appendChild(tweetElement);
+                    });
+                } else {
+                    tweetsContainer.innerHTML = '<p>No tweets found for the hashtag.</p>';
+                }
+            } catch (error) {
+                console.error('Error fetching tweets:', error);
+                tweetsContainer.innerHTML = '<p>Error loading tweets. Please try again later.</p>';
+            }
         }
     </script>
 </body>
