@@ -4,6 +4,7 @@ body {
     color: #333;
     text-align: center;
 }
+
 #tweets-container {
     max-width: 600px;
     margin: 20px auto;
@@ -11,6 +12,7 @@ body {
     border: 1px solid #ddd;
     background-color: #fff;
 }
+
 .tweet {
     border-bottom: 1px solid #ddd;
     padding: 10px;
