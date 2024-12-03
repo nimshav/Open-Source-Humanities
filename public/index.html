@@ -10,10 +10,12 @@
 <body>
     <h1>Open-Source Humanities Hub</h1>
     
-    $1        <button class="tab-button" onclick="showTab('tweets-tab')">#OpenSourceHumanities Tweets</button>
+    <!-- Navigation for Tabs -->
+    <div class="tabs">
+        <button class="tab-button" onclick="showTab('tweets-tab')">#OpenSourceHumanities Tweets</button>
         <button class="tab-button" onclick="showTab('venues-tab')">OpenSourceHumanities Community Venues</button>
         <button class="tab-button" onclick="showTab('people-tab')">People</button>
-$3
+    </div>
 
     <!-- Tweets Tab Content -->
     <div id="tweets-tab" class="tab-content">
@@ -22,7 +24,18 @@ $3
         <div id="tweets-container" aria-live="polite" aria-label="Recent tweets about #OpenSourceHumanities"></div>
     </div>
 
-    $1
+    <!-- Community Venues Tab Content -->
+    <div id="venues-tab" class="tab-content" style="display: none;">
+        <h2>OpenSourceHumanities Community Venues</h2>
+        <div id="venues-container">
+            <ul>
+                <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank">Acid Horizon on TuneIn</a></li>
+                <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
+                <li><a href="https://lacancircle.com.au/" target="_blank">The Lacan Circle of Australia</a></li>
+                <li><a href="https://podcasts.apple.com/us/podcast/moral-minority/id1728182343" target="_blank">Moral Minority</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- People Tab Content -->
     <div id="people-tab" class="tab-content" style="display: none;">
@@ -30,7 +43,6 @@ $3
         <div id="people-container">
             <p>Information about people involved in the OpenSourceHumanities movement will be here.</p>
         </div>
-    </div>
     </div>
 
     <noscript>
