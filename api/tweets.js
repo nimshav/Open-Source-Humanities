@@ -8,8 +8,8 @@ const app = express();
 // Use the port provided by Heroku, otherwise default to 3000 if running locally
 const PORT = process.env.PORT || 3000;
 
-// Serve static frontend files from 'public' directory
-app.use(express.static(path.join(__dirname, '../public')));
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // In-memory cache to store tweets
 let cachedTweets = null;
@@ -72,9 +72,6 @@ app.get('/api/tweets', async (req, res) => {
         }
     }
 });
-
-// Serve static files properly from the public directory
-app.use(express.static('public'));
 
 // Start the server and bind to the dynamic port
 app.listen(PORT, () => {
