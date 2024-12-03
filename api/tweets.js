@@ -1,4 +1,4 @@
-rrequire('dotenv').config();
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
@@ -15,8 +15,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 let cachedTweets = null;
 let lastFetchedTime = 0;
 
-// Cache duration (in milliseconds) - currently set to 30 minutes
-const CACHE_DURATION = 30 * 60 * 1000;
+// Cache duration (in milliseconds) - currently set to 60 minutes
+const CACHE_DURATION = 60 * 60 * 1000; // 60 minutes
 
 // API endpoint to fetch tweets from Twitter API
 app.get('/api/tweets', async (req, res) => {
@@ -37,7 +37,7 @@ app.get('/api/tweets', async (req, res) => {
             params: {
                 'query': '#OpenSourceHumanities',
                 'tweet.fields': 'created_at,author_id,text',
-                'max_results': 10 // Reduce to limit rate and speed up response
+                'max_results': 5 // Reduce to limit rate and speed up response
             },
             timeout: 10000 // Set a timeout of 10 seconds
         });
@@ -54,7 +54,7 @@ app.get('/api/tweets', async (req, res) => {
 
         // Handle rate limit errors (HTTP 429)
         if (statusCode === 429) {
-            console.log('Rate limit exceeded. Retrying...');
+            console.log('Rate limit exceeded. Please try again later.');
             res.status(429).json({
                 error: 'Rate limit exceeded. Please try again later.',
                 details: error.response ? error.response.data : error.message
