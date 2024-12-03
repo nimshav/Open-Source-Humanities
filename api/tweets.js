@@ -6,10 +6,10 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static frontend files
+// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, '../public')));
 
-// API endpoint to get tweets from Twitter API
+// API endpoint to fetch tweets from Twitter API
 app.get('/api/tweets', async (req, res) => {
     try {
         const response = await axios.get('https://api.twitter.com/2/tweets/search/recent', {
@@ -28,7 +28,7 @@ app.get('/api/tweets', async (req, res) => {
     }
 });
 
-// Start the server, bind to the correct port
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
