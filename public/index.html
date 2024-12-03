@@ -61,17 +61,27 @@
             activeTab.style.display = 'block';
         }
 
-        // Function to fetch tweets when the button is clicked
-        async function fetchTweets() {
+        // Function to fetch tweets with retry logic
+        async function fetchTweets(retryCount = 3) {
             const tweetsContainer = document.getElementById('tweets-container');
             tweetsContainer.innerHTML = '<p>Loading tweets...</p>';
+
+            // Create an abort controller to manage request timeout
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 10000); // 10-second timeout
+
             try {
-                const response = await fetch('/api/tweets');
+                const response = await fetch('/api/tweets', {
+                    signal: controller.signal
+                });
+
                 if (!response.ok) {
                     throw new Error('Failed to fetch tweets');
                 }
+
                 const data = await response.json();
                 tweetsContainer.innerHTML = '';
+                
                 if (data.data && data.data.length > 0) {
                     data.data.forEach(tweet => {
                         const tweetElement = document.createElement('div');
@@ -84,7 +94,16 @@
                 }
             } catch (error) {
                 console.error('Error fetching tweets:', error);
-                tweetsContainer.innerHTML = '<p>Error loading tweets. Please try again later.</p>';
+
+                if (retryCount > 0) {
+                    console.log(`Retrying... attempts left: ${retryCount - 1}`);
+                    await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds before retry
+                    return fetchTweets(retryCount - 1);
+                } else {
+                    tweetsContainer.innerHTML = '<p>Error loading tweets. Please try again later.</p>';
+                }
+            } finally {
+                clearTimeout(timeoutId); // Clear the timeout if request completed
             }
         }
     </script>
