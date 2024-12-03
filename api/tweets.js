@@ -73,6 +73,9 @@ app.get('/api/tweets', async (req, res) => {
     }
 });
 
+// Serve static files properly from the public directory
+app.use(express.static('public'));
+
 // Start the server and bind to the dynamic port
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
