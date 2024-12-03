@@ -37,7 +37,7 @@ app.get('/api/tweets', async (req, res) => {
             params: {
                 'query': '#OpenSourceHumanities',
                 'tweet.fields': 'created_at,author_id,text',
-                'max_results': 5 // Reduce to limit rate and speed up response
+                'max_results': 5
             },
             timeout: 10000 // Set a timeout of 10 seconds
         });
@@ -77,6 +77,9 @@ app.get('/api/tweets', async (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
+
+// Update the image path in the index.html to ensure it is properly referenced
+app.use(express.static(path.join(__dirname, '../public/Images')));
 
 // Start the server and bind to the dynamic port
 app.listen(PORT, () => {
