@@ -4,9 +4,11 @@ const axios = require('axios');
 const path = require('path');
 
 const app = express();
+
+// Use the port provided by Heroku, otherwise default to 3000 if running locally
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from the 'public' directory
+// Serve static frontend files from 'public' directory
 app.use(express.static(path.join(__dirname, '../public')));
 
 // API endpoint to fetch tweets from Twitter API
@@ -28,7 +30,7 @@ app.get('/api/tweets', async (req, res) => {
     }
 });
 
-// Start the server
+// Start the server and bind to the dynamic port
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
