@@ -1,4 +1,4 @@
-require('dotenv').config();
+rrequire('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
@@ -71,6 +71,11 @@ app.get('/api/tweets', async (req, res) => {
             });
         }
     }
+});
+
+// Serve index.html by default for all other routes (this is useful for single-page applications)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Start the server and bind to the dynamic port
