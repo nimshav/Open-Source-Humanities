@@ -14,13 +14,23 @@ app.use(express.static(path.join(__dirname, '../public')));
 // In-memory cache to store tweets
 let cachedTweets = null;
 let lastFetchedTime = 0;
+let rateLimitExceeded = false; // Flag to indicate rate limit status
 
-// Cache duration (in milliseconds) - currently set to 60 minutes
-const CACHE_DURATION = 60 * 60 * 1000; // 60 minutes
+// Cache duration (in milliseconds) - currently set to 3 hours
+const CACHE_DURATION = 3 * 60 * 60 * 1000; // 3 hours
 
 // API endpoint to fetch tweets from Twitter API
 app.get('/api/tweets', async (req, res) => {
     const currentTime = Date.now();
+
+    // Check if rate limit has been exceeded recently
+    if (rateLimitExceeded && (currentTime - lastFetchedTime < CACHE_DURATION)) {
+        console.log('Rate limit exceeded. Using cached tweets.');
+        return res.status(429).json({
+            error: 'Rate limit exceeded. Please try again later.',
+            details: 'Using cached tweets due to rate limit.'
+        });
+    }
 
     // Check if we have valid cached data
     if (cachedTweets && (currentTime - lastFetchedTime < CACHE_DURATION)) {
@@ -45,6 +55,7 @@ app.get('/api/tweets', async (req, res) => {
         // Update the cache with new data
         cachedTweets = response.data;
         lastFetchedTime = currentTime;
+        rateLimitExceeded = false; // Reset rate limit flag
 
         // Send the response to the client
         res.json(cachedTweets);
@@ -55,6 +66,8 @@ app.get('/api/tweets', async (req, res) => {
         // Handle rate limit errors (HTTP 429)
         if (statusCode === 429) {
             console.log('Rate limit exceeded. Please try again later.');
+            rateLimitExceeded = true; // Set rate limit flag
+            lastFetchedTime = currentTime; // Update the last fetched time to control retries
             res.status(429).json({
                 error: 'Rate limit exceeded. Please try again later.',
                 details: error.response ? error.response.data : error.message
@@ -77,9 +90,6 @@ app.get('/api/tweets', async (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
-
-// Update the image path in the index.html to ensure it is properly referenced
-app.use(express.static(path.join(__dirname, '../public/Images')));
 
 // Start the server and bind to the dynamic port
 app.listen(PORT, () => {
