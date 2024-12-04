@@ -52,17 +52,17 @@ Step-by-step guide to install and set up your project locally:
 ### Features
 1. Providing an easily accessible list of posts from philosophical Twitter (in production).
 2. Developing search and analytical tools with regard to that list (optional).
-3. Developing a portal for community venues such as blogs and websites (optional).
+3. Developing a portal for community venues such as blogs and websites (in production).
 4. Developing "Tweet Articles" by evenveloping specific tweets with new interpretations and narrations (optional).
-5. Providing a venue for online courses, worshops and webinars (optional).
-6. Providing a venuew for community members' specialized services such as editing, guiding reserach, etc (optional).
-7. Providing a peer reviewed venue for short academic publications that seek to make humanities research more open and accessible to the public (optional).
+5. Providing a venue for online courses, workshops and webinars (optional).
+6. Providing a venuew for community members' specialized services such as editing, guiding reserach, etc. (optional).
+7. Providing a peer-reviewed venue for short academic publications that seek to make humanities research more open and accessible to the public (optional).
 
 ---
 
 ### Licence
 - For the code: GNU GPL.
-- For the content: CC BY-NC-SA 4.0 (ATTRIBUTION-NONCOMMERCIAL-SHAREALIKE 4.0 INTERNATIONAL).
+- For the content: CC BY-NC-SA 4.0.
 
 ---
 
