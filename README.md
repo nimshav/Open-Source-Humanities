@@ -1,8 +1,6 @@
 # Open-Source-Humanities
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
-A more complete guide will be developed in accordance with community needs and responsivness. 
+A more complete guide will be developed in accordance with community needs and responsiveness.
 
 ---
 
@@ -10,10 +8,9 @@ A more complete guide will be developed in accordance with community needs and r
 
 - [About](#about)
 - [Getting Started](#getting-started)
-- [Features](#features)
-- [Usage](#usage)
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Contributing](#contributing)
+- [Features](#features)
 - [License](#license)
 - [Contact](#contact)
 
@@ -26,8 +23,6 @@ This project collects and displays tweets published under the Twitter/X hashtag 
 
 ## Getting Started
 Familiarize yourself with AI software development, the Git system, the languages you intend to use -- their histories and applications, the open source community, and the guiding principles of "doocracy" and "benevolent dictatorship".
-
----
 
 ### Prerequisites
 
@@ -53,14 +48,14 @@ Step-by-step guide to install and set up your project locally:
 1. Providing an easily accessible list of posts from philosophical Twitter (in production).
 2. Developing search and analytical tools with regard to that list (optional).
 3. Developing a portal for community venues such as blogs and websites (in production).
-4. Developing "Tweet Articles" by evenveloping specific tweets with new interpretations and narrations (optional).
+4. Developing "Tweet Articles" by enveloping specific tweets with new interpretations and narrations (optional).
 5. Providing a venue for online courses, workshops and webinars (optional).
-6. Providing a venuew for community members' specialized services such as editing, guiding reserach, etc. (optional).
+6. Providing a venue for community members' specialized services such as editing, guiding research, etc. (optional).
 7. Providing a peer-reviewed venue for short academic publications that seek to make humanities research more open and accessible to the public (optional).
 
 ---
 
-### Licence
+### License
 - For the code: GNU GPL.
 - For the content: CC BY-NC-SA 4.0.
 
