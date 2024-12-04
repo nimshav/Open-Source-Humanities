@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 # Open-Source-Humanities
-=======
+
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A more complete guide will be developed in accordance with community needs and responsivness. 
@@ -69,5 +68,3 @@ Step-by-step guide to install and set up your project locally:
 
 ### Contact
 Write me directly to: nimshav@icloud.com.
-
->>>>>>> heroku/main
