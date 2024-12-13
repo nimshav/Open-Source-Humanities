@@ -55,6 +55,26 @@
         </ul>
     </div>
 
+    <!-- Paid-for Academic Services Tab Content -->
+    <div id="services-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-services" style="display: none;">
+        <h2>Paid-for Academic Services</h2>
+        <ul>
+            <li><a href="#" onclick="showProfile('dAllesZermalmer')">Profile of @dAllesZermalmer</a></li>
+        </ul>
+    </div>
+
+    <!-- The Differential Ontology Blog Tab Content -->
+    <div id="blog-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-blog" style="display: none;">
+        <h2>The Differential Ontology Blog</h2>
+        <div class="sub-tabs">
+            <button class="sub-tab-button" onclick="showSubTab('power-relations')">Power Relations</button>
+        </div>
+        <div id="power-relations" class="sub-tab-content" style="display: none;">
+            <h3>Power Relations</h3>
+            <p><strong>First Blog Post:</strong> <a href="https://u.pcloud.link/publink/show?code=XZBAf05ZNHf6RFgaxDbGlBvb2i0jgQig7NKV" target="_blank" rel="noopener noreferrer">Read PDF</a></p>
+        </div>
+    </div>
+
     <!-- Community Involvement Resources Tab Content -->
     <div id="resources-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-resources" style="display: none;">
         <h2>Community Involvement Resources</h2>
@@ -64,9 +84,8 @@
             </li>
             <li>
                 <p>
-                    Git Tutorial for Dummies is a recommended way to learn Git and GitHub. Real dummies -- like me -- can use the 
+                    This YouTube tutorial for dummies is a recommended way to learn Git and GitHub. Real dummies -- like me -- can use the 
                     <a href="https://desktop.github.com/download/" target="_blank" rel="noopener noreferrer">GitHub application for desktop</a>.
-                    Start with <a href="https://www.youtube.com/watch?v=mJ-qvsxPHpY" target="_blank" rel="noopener noreferrer">this YouTube tutorial</a>.
                 </p>
             </li>
         </ul>
@@ -93,6 +112,16 @@
                 activeButton.setAttribute('aria-selected', 'true');
             }
         }
+
+        function showSubTab(subTabId) {
+            const subTabContents = document.querySelectorAll('.sub-tab-content');
+            subTabContents.forEach(content => content.style.display = 'none');
+            const activeSubTab = document.getElementById(subTabId);
+            if (activeSubTab) {
+                activeSubTab.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
+
