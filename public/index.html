@@ -10,57 +10,64 @@
 <body>
     <h1>Open Source Humanities Hub</h1>
     
-    <!-- Adding Main Page Image -->
+    <!-- Centralized GitHub README Link -->
+    <div class="github-link" style="text-align: center; margin-bottom: 20px;">
+        <a href="https://github.com/nimshav/Open-Source-Humanities" target="_blank" rel="noopener noreferrer">
+            <img src="/Images/GitHub-Mark-32px.png" alt="GitHub Logo" style="vertical-align: middle; margin-right: 8px;">
+            View on GitHub
+        </a>
+    </div>
+
+    <!-- Main Page Image -->
     <div class="main-image">
         <img src="/Images/Gbux-IGaUAA7b13.jpeg" alt="Open Source Humanities Image">
     </div>
 
     <!-- Navigation for Tabs -->
-    <div class="tabs">
-        <button class="tab-button" onclick="showTab('tweets-tab')">Tweets</button>
-        <button class="tab-button" onclick="showTab('venues-tab')">Community Venues</button>
-        <button class="tab-button" onclick="showTab('people-tab')">People Involved</button>
-        <button class="tab-button" onclick="showTab('services-tab')">Paid-for Academic Services</button>
-        <button class="tab-button" onclick="showTab('blog-tab')">The Differential Ontology Blog</button>
-        <button class="tab-button" onclick="showTab('resources-tab')">Community Involvement Resources</button>
+    <div class="tabs" role="tablist">
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tweets-tab" id="tab-tweets" onclick="showTab('tweets-tab')">Tweets</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="venues-tab" id="tab-venues" onclick="showTab('venues-tab')">Community Venues</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="people-tab" id="tab-people" onclick="showTab('people-tab')">People Involved</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="services-tab" id="tab-services" onclick="showTab('services-tab')">Paid-for Academic Services</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="blog-tab" id="tab-blog" onclick="showTab('blog-tab')">The Differential Ontology Blog</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="resources-tab" id="tab-resources" onclick="showTab('resources-tab')">Community Involvement Resources</button>
     </div>
 
     <!-- Tweets Tab Content -->
-    <div id="tweets-tab" class="tab-content">
+    <div id="tweets-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-tweets" style="display: none;">
         <h2>#OpenSourceHumanities Tweets</h2>
-        <button id="fetch-tweets-button" onclick="fetchTweets()">Fetch Latest Tweets</button>
         <div id="tweets-container" aria-live="polite" aria-label="Recent tweets about #OpenSourceHumanities"></div>
     </div>
 
     <!-- Community Venues Tab Content -->
-    <div id="venues-tab" class="tab-content" style="display: none;">
+    <div id="venues-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-venues" style="display: none;">
         <h2>OpenSourceHumanities Community Venues</h2>
         <div id="venues-container">
             <ul>
-                <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank">Acid Horizon on TuneIn</a></li>
-                <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
-                <li><a href="https://lacancircle.com.au/" target="_blank">The Lacan Circle of Australia</a></li>
-                <li><a href="https://podcasts.apple.com/us/podcast/moral-minority/id1728182343" target="_blank">Moral Minority</a></li>
-                <li><a href="https://nimshav.github.io/EthnoComm-Repository/" target="_blank">The Ethnography of Communication Bibliography</a></li>
+                <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank" rel="noopener noreferrer">Acid Horizon on TuneIn</a></li>
+                <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank" rel="noopener noreferrer">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
+                <li><a href="https://lacancircle.com.au/" target="_blank" rel="noopener noreferrer">The Lacan Circle of Australia</a></li>
+                <li><a href="https://podcasts.apple.com/us/podcast/moral-minority/id1728182343" target="_blank" rel="noopener noreferrer">Moral Minority</a></li>
+                <li><a href="https://nimshav.github.io/EthnoComm-Repository/" target="_blank" rel="noopener noreferrer">The Ethnography of Communication Bibliography</a></li>
             </ul>
         </div>
     </div>
 
     <!-- People Tab Content -->
-    <div id="people-tab" class="tab-content" style="display: none;">
+    <div id="people-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-people" style="display: none;">
         <h2>People</h2>
         <div id="people-container">
             <p>These are the MASTERS.</p>
             <ul>
-                <li><a href="https://x.com/Qtempor/with_replies" target="_blank">@Qtempor</a></li>
-                <li><a href="https://x.com/dAllesZermalmer" target="_blank">@dAllesZermalmer</a></li>
-                <li><a href="https://haifa.academia.edu/NimrodShavit" target="_blank">The Boss</a></li>
+                <li><a href="https://x.com/Qtempor/with_replies" target="_blank" rel="noopener noreferrer">@Qtempor</a></li>
+                <li><a href="https://x.com/dAllesZermalmer" target="_blank" rel="noopener noreferrer">@dAllesZermalmer</a></li>
+                <li><a href="https://haifa.academia.edu/NimrodShavit" target="_blank" rel="noopener noreferrer">The Boss</a></li>
             </ul>
         </div>
     </div>
 
     <!-- Paid-for Academic Services Tab Content -->
-    <div id="services-tab" class="tab-content" style="display: none;">
+    <div id="services-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-services" style="display: none;">
         <h2>Paid-for Academic Services</h2>
         <div id="services-container">
             <ul>
@@ -69,26 +76,26 @@
             <div id="profile-dAllesZermalmer" class="profile-content" style="display: none;">
                 <h3>@dAllesZermalmer</h3>
                 <p><strong>Bio:</strong> [Insert Bio Here]</p>
-                <p><strong>CV:</strong> <a href="https://u.pcloud.link/publink/show?code=XZt5L55ZS0wGR8RV03pHMbArUfbro8e7HVYy" target="_blank">View CV</a></p>
+                <p><strong>CV:</strong> <a href="https://u.pcloud.link/publink/show?code=XZt5L55ZS0wGR8RV03pHMbArUfbro8e7HVYy" target="_blank" rel="noopener noreferrer">View CV</a></p>
                 <p><strong>Services Offered:</strong> [Insert Services Here]</p>
             </div>
         </div>
     </div>
 
     <!-- The Differential Ontology Blog Tab Content -->
-    <div id="blog-tab" class="tab-content" style="display: none;">
+    <div id="blog-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-blog" style="display: none;">
         <h2>The Differential Ontology Blog</h2>
         <div class="sub-tabs">
             <button class="sub-tab-button" onclick="showSubTab('power-relations')">Power Relations</button>
         </div>
         <div id="power-relations" class="sub-tab-content" style="display: none;">
             <h3>Power Relations</h3>
-            <p><strong>First Blog Post:</strong> <a href="https://u.pcloud.link/publink/show?code=XZBAf05ZNHf6RFgaxDbGlBvb2i0jgQig7NKV" target="_blank">Read PDF</a></p>
+            <p><strong>First Blog Post:</strong> <a href="https://u.pcloud.link/publink/show?code=XZBAf05ZNHf6RFgaxDbGlBvb2i0jgQig7NKV" target="_blank" rel="noopener noreferrer">Read PDF</a></p>
         </div>
     </div>
 
     <!-- Community Involvement Resources Tab Content -->
-    <div id="resources-tab" class="tab-content" style="display: none;">
+    <div id="resources-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-resources" style="display: none;">
         <h2>Community Involvement Resources</h2>
         <p>Explore tools, guides, and resources for engaging with the #OpenSourceHumanities community. Content coming soon!</p>
     </div>
@@ -96,19 +103,109 @@
     <noscript>
         <p>JavaScript is required to load the content of this page. Please enable JavaScript in your browser settings.</p>
     </noscript>
+    
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tweetsTabButton = document.querySelector('.tab-button[onclick="showTab(\'tweets-tab\')"]');
+            const tweetsContainer = document.getElementById('tweets-container');
+            let tweetsFetched = false; // Flag to prevent multiple fetches
+
+            // Function to fetch and display tweets
+            async function fetchAndDisplayTweets() {
+                // If tweets are already fetched, do not fetch again
+                if (tweetsFetched) return;
+
+                // Display loading indicator
+                tweetsContainer.innerHTML = '<p>Loading tweets...</p>';
+
+                try {
+                    // Fetch tweets from the server
+                    const response = await fetch('/api/tweets');
+
+                    // Handle response errors
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error || 'Failed to fetch tweets');
+                    }
+
+                    // Parse response data
+                    const data = await response.json();
+
+                    // Clear loading indicator
+                    tweetsContainer.innerHTML = '';
+
+                    // Check if there are tweets to display
+                    if (data.data && data.data.length > 0) {
+                        data.data.forEach(tweet => {
+                            const tweetElement = document.createElement('div');
+                            tweetElement.className = 'tweet';
+
+                            // Format the tweet text with links
+                            tweetElement.innerHTML = `
+                                <p>${formatText(tweet.text)}</p>
+                                <span class="tweet-date">Posted on: ${new Date(tweet.created_at).toLocaleString()}</span>
+                            `;
+
+                            tweetsContainer.appendChild(tweetElement);
+                        });
+                    } else {
+                        // Display a message if no tweets are found
+                        tweetsContainer.innerHTML = '<p>No tweets found for the hashtag.</p>';
+                    }
+
+                    tweetsFetched = true; // Set the flag to true after successful fetch
+                } catch (error) {
+                    // Handle errors and display an error message
+                    console.error('Error fetching tweets:', error);
+                    tweetsContainer.innerHTML = '<p>Error loading tweets. Please try again later.</p>';
+                }
+            }
+
+            /**
+             * Utility function to format tweet text with clickable links for hashtags and mentions.
+             * @param {string} text - The text of the tweet.
+             * @returns {string} - Formatted text with links.
+             */
+            function formatText(text) {
+                return text
+                    .replace(/#(\w+)/g, '<a href="https://twitter.com/hashtag/$1" target="_blank" rel="noopener noreferrer">#$1</a>')
+                    .replace(/@(\w+)/g, '<a href="https://twitter.com/$1" target="_blank" rel="noopener noreferrer">@$1</a>');
+            }
+
+            // Attach an event listener to the "Tweets" tab button
+            tweetsTabButton.addEventListener('click', fetchAndDisplayTweets);
+
+            // Optionally, activate the first tab by default
+            showTab('tweets-tab');
+        });
+
         function showTab(tabId) {
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => content.style.display = 'none');
+
             const activeTab = document.getElementById(tabId);
             activeTab.style.display = 'block';
+
+            // Update active tab button
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+                button.setAttribute('aria-selected', 'false');
+            });
+            const activeButton = document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+                activeButton.setAttribute('aria-selected', 'true');
+            }
         }
 
         function showSubTab(subTabId) {
             const subTabContents = document.querySelectorAll('.sub-tab-content');
             subTabContents.forEach(content => content.style.display = 'none');
             const activeSubTab = document.getElementById(subTabId);
-            activeSubTab.style.display = 'block';
+            if (activeSubTab) {
+                activeSubTab.style.display = 'block';
+            }
         }
 
         function showProfile(profileId) {
