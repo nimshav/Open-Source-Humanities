@@ -110,6 +110,15 @@
             const activeSubTab = document.getElementById(subTabId);
             activeSubTab.style.display = 'block';
         }
+
+        function showProfile(profileId) {
+            const profiles = document.querySelectorAll('.profile-content');
+            profiles.forEach(profile => profile.style.display = 'none');
+            const activeProfile = document.getElementById(`profile-${profileId}`);
+            if (activeProfile) {
+                activeProfile.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
