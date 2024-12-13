@@ -25,81 +25,11 @@
         <button class="tab-button" role="tab" aria-selected="false" aria-controls="resources-tab" id="tab-resources" onclick="showTab('resources-tab')">Community Involvement Resources</button>
     </div>
 
-    <!-- Tweets Tab Content -->
-    <div id="tweets-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-tweets" style="display: none;">
-        <h2>#OpenSourceHumanities Tweets</h2>
-        <div id="tweets-container" aria-live="polite" aria-label="Recent tweets about #OpenSourceHumanities"></div>
-    </div>
-
-    <!-- Community Venues Tab Content -->
-    <div id="venues-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-venues" style="display: none;">
-        <h2>OpenSourceHumanities Community Venues</h2>
-        <div id="venues-container">
-            <ul>
-                <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank" rel="noopener noreferrer">Acid Horizon on TuneIn</a></li>
-                <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank" rel="noopener noreferrer">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
-                <li><a href="https://lacancircle.com.au/" target="_blank" rel="noopener noreferrer">The Lacan Circle of Australia</a></li>
-                <li><a href="https://podcasts.apple.com/us/podcast/moral-minority/id1728182343" target="_blank" rel="noopener noreferrer">Moral Minority</a></li>
-                <li><a href="https://nimshav.github.io/EthnoComm-Repository/" target="_blank" rel="noopener noreferrer">The Ethnography of Communication Bibliography</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- People Tab Content -->
-    <div id="people-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-people" style="display: none;">
-        <h2>People</h2>
-        <div id="people-container">
-            <p>These are the MASTERS.</p>
-            <ul>
-                <li><a href="https://x.com/Qtempor/with_replies" target="_blank" rel="noopener noreferrer">@Qtempor</a></li>
-                <li><a href="https://x.com/dAllesZermalmer" target="_blank" rel="noopener noreferrer">@dAllesZermalmer</a></li>
-                <li><a href="https://haifa.academia.edu/NimrodShavit" target="_blank" rel="noopener noreferrer">The Boss</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Paid-for Academic Services Tab Content -->
-    <div id="services-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-services" style="display: none;">
-        <h2>Paid-for Academic Services</h2>
-        <div id="services-container">
-            <ul>
-                <li><a href="#" onclick="showProfile('dAllesZermalmer')">Profile of @dAllesZermalmer</a></li>
-            </ul>
-            <div id="profile-dAllesZermalmer" class="profile-content" style="display: none;">
-                <h3>Nimrod Shavit</h3>
-                <p><strong>Bio:</strong> I am a communication scholar specializing in the intersection of qualitative methods epistemology and Language and Social Interaction (LSI). My research focuses on the political economy of human conversation and how this micro-communicative system interacts with the political economies of macro-social and institutional orders. My current work has two main goals: first, to enhance the understanding of causal "Why" questions in qualitative communication research based on Jon Elster's analytical Marxism; and second, to ground ethnographic interpretation in the differential ontologies of Martin Heidegger and Jacques Derrida.
-                </p>
-                <p><strong>CV:</strong> <a href="https://u.pcloud.link/publink/show?code=XZt5L55ZS0wGR8RV03pHMbArUfbro8e7HVYy" target="_blank" rel="noopener noreferrer">View CV</a></p>
-                <p><strong>Services Offered:</strong></p>
-                <ol>
-                    <li><em>Dissertation Hacking</em>. If you're a graduate student in any area of the social sciences and humanities who got stuck in the dissertation -- offer <em>me</em> the editorial job and I'll lead you to completion with <em>warranty</em>.</li>
-                </ol>
-            </div>
-            <!-- Centralized Image -->
-            <div class="academic-services-image">
-                <img src="Images/GebK7kjWEAAK3Fy.jpeg" alt="Academic Services Image">
-            </div>
-        </div>
-    </div>
-
-    <!-- The Differential Ontology Blog Tab Content -->
-    <div id="blog-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-blog" style="display: none;">
-        <h2>The Differential Ontology Blog</h2>
-        <div class="sub-tabs">
-            <button class="sub-tab-button" onclick="showSubTab('power-relations')">Power Relations</button>
-        </div>
-        <div id="power-relations" class="sub-tab-content" style="display: none;">
-            <h3>Power Relations</h3>
-            <p><strong>First Blog Post:</strong> <a href="https://u.pcloud.link/publink/show?code=XZBAf05ZNHf6RFgaxDbGlBvb2i0jgQig7NKV" target="_blank" rel="noopener noreferrer">Read PDF</a></p>
-        </div>
-    </div>
-
     <!-- Community Involvement Resources Tab Content -->
     <div id="resources-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-resources" style="display: none;">
         <h2>Community Involvement Resources</h2>
         <div id="resources-container">
             <ul>
-                <!-- Added GitHub Link -->
                 <li>
                     <a href="https://github.com/nimshav/Open-Source-Humanities" target="_blank" rel="noopener noreferrer">
                         View #OpenSourceHumanities on GitHub
@@ -108,7 +38,13 @@
                 <li>
                     <a href="https://www.youtube.com/watch?v=mJ-qvsxPHpY" target="_blank" rel="noopener noreferrer">
                         Git Tutorial for Dummies
-                    </a><p>This tutorial is recommended as a way to get to know Git and GitHub. Real dummies -- like me -- can use the<a href="https://desktop.github.com/download/">GitHub application for desktop.</a>
+                    </a>
+                    <p>
+                        This tutorial is recommended as a way to get to know Git and GitHub. Real dummies -- like me&nbsp;--
+                        can use the
+                        <a href="https://desktop.github.com/download/" target="_blank" rel="noopener noreferrer">
+                            GitHub application for desktop
+                        </a>.
                     </p>
                 </li>
             </ul>
@@ -190,24 +126,6 @@
             if (activeButton) {
                 activeButton.classList.add('active');
                 activeButton.setAttribute('aria-selected', 'true');
-            }
-        }
-
-        function showSubTab(subTabId) {
-            const subTabContents = document.querySelectorAll('.sub-tab-content');
-            subTabContents.forEach(content => content.style.display = 'none');
-            const activeSubTab = document.getElementById(subTabId);
-            if (activeSubTab) {
-                activeSubTab.style.display = 'block';
-            }
-        }
-
-        function showProfile(profileId) {
-            const profiles = document.querySelectorAll('.profile-content');
-            profiles.forEach(profile => profile.style.display = 'none');
-            const activeProfile = document.getElementById(`profile-${profileId}`);
-            if (activeProfile) {
-                activeProfile.style.display = 'block';
             }
         }
     </script>
