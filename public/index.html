@@ -9,14 +9,6 @@
 </head>
 <body>
     <h1>Open Source Humanities Hub</h1>
-    
-    <!-- Centralized GitHub README Link -->
-    <div class="github-link">
-        <a href="https://github.com/nimshav/Open-Source-Humanities" target="_blank" rel="noopener noreferrer">
-            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="github-logo">
-            View on GitHub
-        </a>
-    </div>
 
     <!-- Main Page Image -->
     <div class="main-image">
@@ -83,7 +75,7 @@
                     <li><em>Dissertation Hacking</em>. If you're a graduate student in any area of the social sciences and humanities who got stuck in the dissertation -- offer <em>me</em> the editorial job and I'll lead you to completion with <em>warranty</em>.</li>
                 </ol>
             </div>
-            <!-- Added Image Below -->
+            <!-- Centralized Image -->
             <div class="academic-services-image">
                 <img src="Images/GebK7kjWEAAK3Fy.jpeg" alt="Academic Services Image">
             </div>
@@ -116,39 +108,29 @@
         document.addEventListener('DOMContentLoaded', () => {
             const tweetsTabButton = document.querySelector('.tab-button[onclick="showTab(\'tweets-tab\')"]');
             const tweetsContainer = document.getElementById('tweets-container');
-            let tweetsFetched = false; // Flag to prevent multiple fetches
+            let tweetsFetched = false;
 
-            // Function to fetch and display tweets
             async function fetchAndDisplayTweets() {
-                // If tweets are already fetched, do not fetch again
                 if (tweetsFetched) return;
 
-                // Display loading indicator
                 tweetsContainer.innerHTML = '<p>Loading tweets...</p>';
 
                 try {
-                    // Fetch tweets from the server
                     const response = await fetch('/api/tweets');
 
-                    // Handle response errors
                     if (!response.ok) {
                         const errorData = await response.json();
                         throw new Error(errorData.error || 'Failed to fetch tweets');
                     }
 
-                    // Parse response data
                     const data = await response.json();
-
-                    // Clear loading indicator
                     tweetsContainer.innerHTML = '';
 
-                    // Check if there are tweets to display
                     if (data.data && data.data.length > 0) {
                         data.data.forEach(tweet => {
                             const tweetElement = document.createElement('div');
                             tweetElement.className = 'tweet';
 
-                            // Format the tweet text with links
                             tweetElement.innerHTML = `
                                 <p>${formatText(tweet.text)}</p>
                                 <span class="tweet-date">Posted on: ${new Date(tweet.created_at).toLocaleString()}</span>
@@ -157,33 +139,23 @@
                             tweetsContainer.appendChild(tweetElement);
                         });
                     } else {
-                        // Display a message if no tweets are found
                         tweetsContainer.innerHTML = '<p>No tweets found for the hashtag.</p>';
                     }
 
-                    tweetsFetched = true; // Set the flag to true after successful fetch
+                    tweetsFetched = true;
                 } catch (error) {
-                    // Handle errors and display an error message
                     console.error('Error fetching tweets:', error);
                     tweetsContainer.innerHTML = '<p>Error loading tweets. Please try again later.</p>';
                 }
             }
 
-            /**
-             * Utility function to format tweet text with clickable links for hashtags and mentions.
-             * @param {string} text - The text of the tweet.
-             * @returns {string} - Formatted text with links.
-             */
             function formatText(text) {
                 return text
                     .replace(/#(\w+)/g, '<a href="https://twitter.com/hashtag/$1" target="_blank" rel="noopener noreferrer">#$1</a>')
                     .replace(/@(\w+)/g, '<a href="https://twitter.com/$1" target="_blank" rel="noopener noreferrer">@$1</a>');
             }
 
-            // Attach an event listener to the "Tweets" tab button
             tweetsTabButton.addEventListener('click', fetchAndDisplayTweets);
-
-            // Optionally, activate the first tab by default
             showTab('tweets-tab');
         });
 
@@ -194,7 +166,6 @@
             const activeTab = document.getElementById(tabId);
             activeTab.style.display = 'block';
 
-            // Update active tab button
             const tabButtons = document.querySelectorAll('.tab-button');
             tabButtons.forEach(button => {
                 button.classList.remove('active');
@@ -227,4 +198,3 @@
     </script>
 </body>
 </html>
-

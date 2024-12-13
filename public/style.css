@@ -23,20 +23,15 @@ h1 {
     height: auto;
 }
 
-/* --- GitHub Link Styling --- */
-.github-link a {
-    color: #fff; /* White text for visibility */
+/* --- Links Styling --- */
+a {
+    color: #d2691e; /* Set links to an orange-brown color */
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.github-link a:hover {
-    text-decoration: underline;
-}
-
-.github-logo {
-    width: 32px;
-    height: 32px;
-    margin-right: 8px;
+a:hover {
+    color: #a0522d; /* Darker orange-brown on hover */
 }
 
 /* --- Tabs Styling --- */
@@ -84,54 +79,14 @@ h1 {
     border: 1px solid #444;
 }
 
-.tweet {
-    background-color: #222; /* Darker background for tweets */
-    color: #fff; /* White text for tweets */
-    border: 1px solid #444;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 10px;
-    box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
-    transition: box-shadow 0.3s ease;
+.academic-services-image {
+    text-align: center; /* Centralize the image */
+    margin-top: 20px;
 }
 
-.tweet:hover {
-    box-shadow: 1px 1px 8px rgba(255, 255, 255, 0.2);
-}
-
-.tweet a {
-    color: #1e90ff; /* Bright blue links for visibility */
-    text-decoration: none;
-}
-
-.tweet a:hover {
-    text-decoration: underline;
-}
-
-.tweet-date {
-    display: block;
-    font-size: 0.9em;
-    color: #aaa; /* Light grey for secondary text */
-    margin-top: 10px;
-}
-
-#tweets-container p {
-    font-size: 1.1em;
-    color: #fff; /* Ensure text is visible on black background */
-    text-align: center;
-}
-
-/* --- Academic Services Image Styling --- */
 .academic-services-image img {
     border: 2px solid #fff; /* Add white border for contrast */
     border-radius: 8px;
-}
-
-/* --- Ordered List Styling --- */
-.profile-content li {
-    margin-bottom: 10px;
-    line-height: 1.6;
-    color: #fff; /* White text for visibility */
 }
 
 /* --- Responsive Styles --- */
