@@ -20,6 +20,9 @@
         <button class="tab-button" onclick="showTab('tweets-tab')">Tweets</button>
         <button class="tab-button" onclick="showTab('venues-tab')">Community Venues</button>
         <button class="tab-button" onclick="showTab('people-tab')">People Involved</button>
+        <button class="tab-button" onclick="showTab('services-tab')">Paid-for Academic Services</button>
+        <button class="tab-button" onclick="showTab('blog-tab')">The Deferential Ontology Blog</button>
+        <button class="tab-button" onclick="showTab('resources-tab')">Community Involvement Resources</button>
     </div>
 
     <!-- Tweets Tab Content -->
@@ -56,65 +59,52 @@
         </div>
     </div>
 
+    <!-- Paid-for Academic Services Tab Content -->
+    <div id="services-tab" class="tab-content" style="display: none;">
+        <h2>Paid-for Academic Services</h2>
+        <div id="services-container">
+            <ul>
+                <li><a href="#" onclick="showProfile('dAllesZermalmer')">Profile of @dAllesZermalmer</a></li>
+            </ul>
+            <div id="profile-dAllesZermalmer" class="profile-content" style="display: none;">
+                <h3>@dAllesZermalmer</h3>
+                <p><strong>Bio:</strong> [Insert Bio Here]</p>
+                <p><strong>CV:</strong> [Insert CV Here]</p>
+                <p><strong>Services Offered:</strong> [Insert Services Here]</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Deferential Ontology Blog Tab Content -->
+    <div id="blog-tab" class="tab-content" style="display: none;">
+        <h2>The Deferential Ontology Blog</h2>
+        <p>Welcome to the blog space for exploring and discussing deferential ontology. Content coming soon!</p>
+    </div>
+
+    <!-- Community Involvement Resources Tab Content -->
+    <div id="resources-tab" class="tab-content" style="display: none;">
+        <h2>Community Involvement Resources</h2>
+        <p>Explore tools, guides, and resources for engaging with the #OpenSourceHumanities community. Content coming soon!</p>
+    </div>
+
     <noscript>
         <p>JavaScript is required to load the content of this page. Please enable JavaScript in your browser settings.</p>
     </noscript>
     <script src="/script.js" defer></script>
     <script>
-        // JavaScript function to handle showing the appropriate tab content
         function showTab(tabId) {
-            // Hide all tab contents
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => content.style.display = 'none');
-            
-            // Show the selected tab content
             const activeTab = document.getElementById(tabId);
             activeTab.style.display = 'block';
         }
 
-        // Function to fetch tweets with retry logic
-        async function fetchTweets(retryCount = 3) {
-            const tweetsContainer = document.getElementById('tweets-container');
-            tweetsContainer.innerHTML = '<p>Loading tweets...</p>';
-
-            // Create an abort controller to manage request timeout
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 10000); // 10-second timeout
-
-            try {
-                const response = await fetch('/api/tweets', {
-                    signal: controller.signal
-                });
-
-                if (!response.ok) {
-                    throw new Error('Failed to fetch tweets');
-                }
-
-                const data = await response.json();
-                tweetsContainer.innerHTML = '';
-                
-                if (data.data && data.data.length > 0) {
-                    data.data.forEach(tweet => {
-                        const tweetElement = document.createElement('div');
-                        tweetElement.className = 'tweet';
-                        tweetElement.innerHTML = `<p>${tweet.text}</p>`;
-                        tweetsContainer.appendChild(tweetElement);
-                    });
-                } else {
-                    tweetsContainer.innerHTML = '<p>No tweets found for the hashtag.</p>';
-                }
-            } catch (error) {
-                console.error('Error fetching tweets:', error);
-
-                if (retryCount > 0) {
-                    console.log(`Retrying... attempts left: ${retryCount - 1}`);
-                    await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds before retry
-                    return fetchTweets(retryCount - 1);
-                } else {
-                    tweetsContainer.innerHTML = '<p>Error loading tweets. Please try again later.</p>';
-                }
-            } finally {
-                clearTimeout(timeoutId); // Clear the timeout if request completed
+        function showProfile(profileId) {
+            const profiles = document.querySelectorAll('.profile-content');
+            profiles.forEach(profile => profile.style.display = 'none');
+            const activeProfile = document.getElementById(`profile-${profileId}`);
+            if (activeProfile) {
+                activeProfile.style.display = 'block';
             }
         }
     </script>
