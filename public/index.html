@@ -81,7 +81,7 @@
         <div class="sub-tabs">
             <button class="sub-tab-button" onclick="showSubTab('power-relations')">Power Relations</button>
         </div>
-        <div id="power-relations" class="sub-tab-content">
+        <div id="power-relations" class="sub-tab-content" style="display: none;">
             <h3>Power Relations</h3>
             <p><strong>First Blog Post:</strong> <a href="https://u.pcloud.link/publink/show?code=XZBAf05ZNHf6RFgaxDbGlBvb2i0jgQig7NKV" target="_blank">Read PDF</a></p>
         </div>
@@ -96,10 +96,20 @@
     <noscript>
         <p>JavaScript is required to load the content of this page. Please enable JavaScript in your browser settings.</p>
     </noscript>
-    <script src="/script.js" defer></script>
     <script>
         function showTab(tabId) {
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => content.style.display = 'none');
             const activeTab = document.getElementById(tabId);
-          
+            activeTab.style.display = 'block';
+        }
+
+        function showSubTab(subTabId) {
+            const subTabContents = document.querySelectorAll('.sub-tab-content');
+            subTabContents.forEach(content => content.style.display = 'none');
+            const activeSubTab = document.getElementById(subTabId);
+            activeSubTab.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
