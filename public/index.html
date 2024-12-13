@@ -34,15 +34,13 @@
     <!-- Community Venues Tab Content -->
     <div id="venues-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-venues" style="display: none;">
         <h2>OpenSourceHumanities Community Venues</h2>
-        <div id="venues-container">
-            <ul>
-                <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank" rel="noopener noreferrer">Acid Horizon on TuneIn</a></li>
-                <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank" rel="noopener noreferrer">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
-                <li><a href="https://lacancircle.com.au/" target="_blank" rel="noopener noreferrer">The Lacan Circle of Australia</a></li>
-                <li><a href="https://podcasts.apple.com/us/podcast/moral-minority/id1728182343" target="_blank" rel="noopener noreferrer">Moral Minority</a></li>
-                <li><a href="https://nimshav.github.io/EthnoComm-Repository/" target="_blank" rel="noopener noreferrer">The Ethnography of Communication Bibliography</a></li>
-            </ul>
-        </div>
+        <ul>
+            <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank" rel="noopener noreferrer">Acid Horizon on TuneIn</a></li>
+            <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank" rel="noopener noreferrer">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
+            <li><a href="https://lacancircle.com.au/" target="_blank" rel="noopener noreferrer">The Lacan Circle of Australia</a></li>
+            <li><a href="https://podcasts.apple.com/us/podcast/moral-minority/id1728182343" target="_blank" rel="noopener noreferrer">Moral Minority</a></li>
+            <li><a href="https://nimshav.github.io/EthnoComm-Repository/" target="_blank" rel="noopener noreferrer">The Ethnography of Communication Bibliography</a></li>
+        </ul>
     </div>
 
     <!-- People Tab Content -->
@@ -61,6 +59,11 @@
         <ul>
             <li><a href="#" onclick="showProfile('dAllesZermalmer')">Profile of @dAllesZermalmer</a></li>
         </ul>
+        <div id="profile-dAllesZermalmer" class="profile-content" style="display: none;">
+            <h3>Nimrod Shavit</h3>
+            <p><strong>Bio:</strong> Communication scholar specializing in qualitative methods, epistemology, and Language and Social Interaction (LSI). Current research focuses on causal "Why" questions in communication and grounding ethnographic interpretation in differential ontology.</p>
+            <p><strong>CV:</strong> <a href="https://u.pcloud.link/publink/show?code=XZt5L55ZS0wGR8RV03pHMbArUfbro8e7HVYy" target="_blank" rel="noopener noreferrer">View CV</a></p>
+        </div>
     </div>
 
     <!-- The Differential Ontology Blog Tab Content -->
@@ -84,7 +87,7 @@
             </li>
             <li>
                 <p>
-                    This YouTube tutorial for dummies is a recommended way to learn Git and GitHub. Real dummies -- like me -- can use the 
+                    This <a href="https://www.youtube.com/watch?v=mJ-qvsxPHpY" target="_blank" rel="noopener noreferrer">tutorial for dummies</a> is a recommended way to learn Git and GitHub. Real dummies -- like me -- can use the 
                     <a href="https://desktop.github.com/download/" target="_blank" rel="noopener noreferrer">GitHub application for desktop</a>.
                 </p>
             </li>
@@ -121,7 +124,17 @@
                 activeSubTab.style.display = 'block';
             }
         }
+
+        function showProfile(profileId) {
+            const profiles = document.querySelectorAll('.profile-content');
+            profiles.forEach(profile => profile.style.display = 'none');
+            const activeProfile = document.getElementById(`profile-${profileId}`);
+            if (activeProfile) {
+                activeProfile.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
+
 
