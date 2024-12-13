@@ -35,12 +35,12 @@ List software or tools needed to run the project:
 
 Step-by-step guide to install and set up your project locally:
 
-1. Install GitHub for desktop
-2. Install Node.JS
-3. Install code editor such as Visual Studio
-4. Clone project to your local machine
-5. Open the repository with editor
-6. Edit
+1. Install GitHub for desktop.
+2. Install Node.js.
+3. Install a code editor such as Visual Studio Code.
+4. Clone the project to your local machine.
+5. Open the repository with the editor.
+6. Edit and customize as needed.
 
 ---
 
@@ -49,7 +49,7 @@ Step-by-step guide to install and set up your project locally:
 2. Developing search and analytical tools with regard to that list (optional).
 3. Developing a portal for community venues such as blogs and websites (in production).
 4. Developing "Tweet Articles" by enveloping specific tweets with new interpretations and narrations (optional).
-5. Providing a venue for online courses, workshops and webinars (optional).
+5. Providing a venue for online courses, workshops, and webinars (optional).
 6. Providing a venue for community members' specialized services such as editing, guiding research, etc. (optional).
 7. Providing a peer-reviewed venue for short academic publications that seek to make humanities research more open and accessible to the public (optional).
 
@@ -62,4 +62,4 @@ Step-by-step guide to install and set up your project locally:
 ---
 
 ### Contact
-Write me directly to: nimshav@icloud.com.
+Write me directly at: nimshav@icloud.com.
