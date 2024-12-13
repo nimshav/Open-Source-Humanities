@@ -78,12 +78,13 @@
     <!-- The Differential Ontology Blog Tab Content -->
     <div id="blog-tab" class="tab-content" style="display: none;">
         <h2>The Differential Ontology Blog</h2>
-        <form id="upload-blog-form" enctype="multipart/form-data">
-            <label for="blog-upload">Upload your first blog as a PDF:</label>
-            <input type="file" id="blog-upload" name="blog-upload" accept="application/pdf">
-            <button type="button" onclick="uploadBlog()">Upload Blog</button>
-        </form>
-        <div id="blog-display"></div>
+        <div class="sub-tabs">
+            <button class="sub-tab-button" onclick="showSubTab('power-relations')">Power Relations</button>
+        </div>
+        <div id="power-relations" class="sub-tab-content">
+            <h3>Power Relations</h3>
+            <p><strong>First Blog Post:</strong> <a href="https://u.pcloud.link/publink/show?code=XZBAf05ZNHf6RFgaxDbGlBvb2i0jgQig7NKV" target="_blank">Read PDF</a></p>
+        </div>
     </div>
 
     <!-- Community Involvement Resources Tab Content -->
@@ -101,46 +102,4 @@
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => content.style.display = 'none');
             const activeTab = document.getElementById(tabId);
-            activeTab.style.display = 'block';
-        }
-
-        function showProfile(profileId) {
-            const profiles = document.querySelectorAll('.profile-content');
-            profiles.forEach(profile => profile.style.display = 'none');
-            const activeProfile = document.getElementById(`profile-${profileId}`);
-            if (activeProfile) {
-                activeProfile.style.display = 'block';
-            }
-        }
-
-        async function uploadBlog() {
-            const blogInput = document.getElementById('blog-upload');
-            const blogDisplay = document.getElementById('blog-display');
-
-            if (blogInput.files.length === 0) {
-                alert('Please select a PDF file to upload.');
-                return;
-            }
-
-            const file = blogInput.files[0];
-            if (file.type !== 'application/pdf') {
-                alert('Only PDF files are allowed.');
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const pdfEmbed = document.createElement('embed');
-                pdfEmbed.src = e.target.result;
-                pdfEmbed.type = 'application/pdf';
-                pdfEmbed.width = '100%';
-                pdfEmbed.height = '500px';
-                blogDisplay.innerHTML = '';
-                blogDisplay.appendChild(pdfEmbed);
-            };
-
-            reader.readAsDataURL(file);
-        }
-    </script>
-</body>
-</html>
+          
