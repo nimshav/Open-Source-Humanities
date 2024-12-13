@@ -17,7 +17,7 @@
 
     <!-- Navigation for Tabs -->
     <div class="tabs" role="tablist">
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="tweets-tab" id="tab-tweets" onclick="showTab('tweets-tab')">Tweets</button>
+        <button class="tab-button" role="tab" aria-selected="true" aria-controls="tweets-tab" id="tab-tweets" onclick="showTab('tweets-tab')">Tweets</button>
         <button class="tab-button" role="tab" aria-selected="false" aria-controls="venues-tab" id="tab-venues" onclick="showTab('venues-tab')">Community Venues</button>
         <button class="tab-button" role="tab" aria-selected="false" aria-controls="people-tab" id="tab-people" onclick="showTab('people-tab')">People Involved</button>
         <button class="tab-button" role="tab" aria-selected="false" aria-controls="services-tab" id="tab-services" onclick="showTab('services-tab')">Paid-for Academic Services</button>
@@ -25,91 +25,58 @@
         <button class="tab-button" role="tab" aria-selected="false" aria-controls="resources-tab" id="tab-resources" onclick="showTab('resources-tab')">Community Involvement Resources</button>
     </div>
 
+    <!-- Tweets Tab Content -->
+    <div id="tweets-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-tweets" style="display: block;">
+        <h2>#OpenSourceHumanities Tweets</h2>
+        <div id="tweets-container" aria-live="polite" aria-label="Recent tweets about #OpenSourceHumanities"></div>
+    </div>
+
+    <!-- Community Venues Tab Content -->
+    <div id="venues-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-venues" style="display: none;">
+        <h2>OpenSourceHumanities Community Venues</h2>
+        <div id="venues-container">
+            <ul>
+                <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank" rel="noopener noreferrer">Acid Horizon on TuneIn</a></li>
+                <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank" rel="noopener noreferrer">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
+                <li><a href="https://lacancircle.com.au/" target="_blank" rel="noopener noreferrer">The Lacan Circle of Australia</a></li>
+                <li><a href="https://podcasts.apple.com/us/podcast/moral-minority/id1728182343" target="_blank" rel="noopener noreferrer">Moral Minority</a></li>
+                <li><a href="https://nimshav.github.io/EthnoComm-Repository/" target="_blank" rel="noopener noreferrer">The Ethnography of Communication Bibliography</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- People Tab Content -->
+    <div id="people-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-people" style="display: none;">
+        <h2>People</h2>
+        <ul>
+            <li><a href="https://x.com/Qtempor/with_replies" target="_blank" rel="noopener noreferrer">@Qtempor</a></li>
+            <li><a href="https://x.com/dAllesZermalmer" target="_blank" rel="noopener noreferrer">@dAllesZermalmer</a></li>
+            <li><a href="https://haifa.academia.edu/NimrodShavit" target="_blank" rel="noopener noreferrer">The Boss</a></li>
+        </ul>
+    </div>
+
     <!-- Community Involvement Resources Tab Content -->
     <div id="resources-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-resources" style="display: none;">
         <h2>Community Involvement Resources</h2>
-        <div id="resources-container">
-            <ul>
-                <li>
-                    <a href="https://github.com/nimshav/Open-Source-Humanities" target="_blank" rel="noopener noreferrer">
-                        View #OpenSourceHumanities on GitHub
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.youtube.com/watch?v=mJ-qvsxPHpY" target="_blank" rel="noopener noreferrer">
-                        Git Tutorial for Dummies
-                    </a>
-                    <p>
-                        This tutorial is recommended as a way to get to know Git and GitHub. Real dummies -- like me&nbsp;--
-                        can use the
-                        <a href="https://desktop.github.com/download/" target="_blank" rel="noopener noreferrer">
-                            GitHub application for desktop
-                        </a>.
-                    </p>
-                </li>
-            </ul>
-        </div>
+        <ul>
+            <li>
+                <a href="https://github.com/nimshav/Open-Source-Humanities" target="_blank" rel="noopener noreferrer">View #OpenSourceHumanities on GitHub</a>
+            </li>
+            <li>
+                <p>
+                    Git Tutorial for Dummies is a recommended way to learn Git and GitHub. Real dummies -- like me -- can use the 
+                    <a href="https://desktop.github.com/download/" target="_blank" rel="noopener noreferrer">GitHub application for desktop</a>.
+                    Start with <a href="https://www.youtube.com/watch?v=mJ-qvsxPHpY" target="_blank" rel="noopener noreferrer">this YouTube tutorial</a>.
+                </p>
+            </li>
+        </ul>
     </div>
 
     <noscript>
         <p>JavaScript is required to load the content of this page. Please enable JavaScript in your browser settings.</p>
     </noscript>
-    
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tweetsTabButton = document.querySelector('.tab-button[onclick="showTab(\'tweets-tab\')"]');
-            const tweetsContainer = document.getElementById('tweets-container');
-            let tweetsFetched = false;
-
-            async function fetchAndDisplayTweets() {
-                if (tweetsFetched) return;
-
-                tweetsContainer.innerHTML = '<p>Loading tweets...</p>';
-
-                try {
-                    const response = await fetch('/api/tweets');
-
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(errorData.error || 'Failed to fetch tweets');
-                    }
-
-                    const data = await response.json();
-                    tweetsContainer.innerHTML = '';
-
-                    if (data.data && data.data.length > 0) {
-                        data.data.forEach(tweet => {
-                            const tweetElement = document.createElement('div');
-                            tweetElement.className = 'tweet';
-
-                            tweetElement.innerHTML = `
-                                <p>${formatText(tweet.text)}</p>
-                                <span class="tweet-date">Posted on: ${new Date(tweet.created_at).toLocaleString()}</span>
-                            `;
-
-                            tweetsContainer.appendChild(tweetElement);
-                        });
-                    } else {
-                        tweetsContainer.innerHTML = '<p>No tweets found for the hashtag.</p>';
-                    }
-
-                    tweetsFetched = true;
-                } catch (error) {
-                    console.error('Error fetching tweets:', error);
-                    tweetsContainer.innerHTML = '<p>Error loading tweets. Please try again later.</p>';
-                }
-            }
-
-            function formatText(text) {
-                return text
-                    .replace(/#(\w+)/g, '<a href="https://twitter.com/hashtag/$1" target="_blank" rel="noopener noreferrer">#$1</a>')
-                    .replace(/@(\w+)/g, '<a href="https://twitter.com/$1" target="_blank" rel="noopener noreferrer">@$1</a>');
-            }
-
-            tweetsTabButton.addEventListener('click', fetchAndDisplayTweets);
-            showTab('tweets-tab');
-        });
-
         function showTab(tabId) {
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => content.style.display = 'none');
@@ -119,12 +86,10 @@
 
             const tabButtons = document.querySelectorAll('.tab-button');
             tabButtons.forEach(button => {
-                button.classList.remove('active');
                 button.setAttribute('aria-selected', 'false');
             });
             const activeButton = document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`);
             if (activeButton) {
-                activeButton.classList.add('active');
                 activeButton.setAttribute('aria-selected', 'true');
             }
         }
