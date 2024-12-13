@@ -1,8 +1,8 @@
 /* --- Base Styles --- */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #000; /* Set background to black */
+    color: #fff; /* Set default text color to white */
     margin: 0;
     padding: 20px;
     display: flex;
@@ -15,11 +15,7 @@ body {
 h1 {
     text-align: center;
     margin-bottom: 20px;
-}
-
-.main-image {
-    text-align: center;
-    margin-bottom: 20px;
+    color: #fff; /* Ensure the heading text is white */
 }
 
 .main-image img {
@@ -28,17 +24,9 @@ h1 {
 }
 
 /* --- GitHub Link Styling --- */
-.github-link {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .github-link a {
-    color: #333; /* Adjust color as needed */
+    color: #fff; /* White text for visibility */
     text-decoration: none;
-    font-size: 16px; /* Adjust font size as needed */
-    display: inline-flex;
-    align-items: center;
 }
 
 .github-link a:hover {
@@ -46,20 +34,9 @@ h1 {
 }
 
 .github-logo {
-    width: 32px; /* Adjust size as needed */
+    width: 32px;
     height: 32px;
     margin-right: 8px;
-}
-
-@media (max-width: 768px) {
-    .github-logo {
-        width: 24px;
-        height: 24px;
-    }
-
-    .github-link a {
-        font-size: 14px;
-    }
 }
 
 /* --- Tabs Styling --- */
@@ -69,56 +46,61 @@ h1 {
     gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 20px;
-    max-width: 800px; /* Ensures tabs do not exceed 800px */
-    width: 100%;       /* Allows tabs to be responsive */
+    max-width: 800px;
+    width: 100%;
 }
 
 .tab-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
+    background-color: #fff; /* White background for tabs */
+    color: #000; /* Black text for contrast */
+    border: 1px solid #fff; /* Add white border for contrast */
     padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .tab-button.active {
-    background-color: #0056b3;
+    background-color: #555; /* Darker background for active tab */
+    color: #fff; /* White text for active tab */
     font-weight: bold;
 }
 
 .tab-button:hover {
-    background-color: #0056b3;
+    background-color: #333; /* Dark hover background */
+    color: #fff; /* Hover text to white */
 }
 
 /* --- Tab Content Styling --- */
 .tab-content {
     max-width: 800px;
     margin: 0 auto;
-}
-
-#tweets-container, #venues-container {
-    margin-top: 20px;
+    color: #fff; /* Ensure tab content text is white */
+    background-color: #111; /* Slightly lighter background for contrast */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #444;
 }
 
 .tweet {
-    border: 1px solid #ddd;
+    background-color: #222; /* Darker background for tweets */
+    color: #fff; /* White text for tweets */
+    border: 1px solid #444;
     border-radius: 8px;
     padding: 15px;
     margin-bottom: 10px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
     transition: box-shadow 0.3s ease;
 }
 
 .tweet:hover {
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 8px rgba(255, 255, 255, 0.2);
 }
 
 .tweet a {
-    color: #007bff;
+    color: #1e90ff; /* Bright blue links for visibility */
     text-decoration: none;
 }
 
@@ -129,52 +111,27 @@ h1 {
 .tweet-date {
     display: block;
     font-size: 0.9em;
-    color: #666;
+    color: #aaa; /* Light grey for secondary text */
     margin-top: 10px;
 }
 
 #tweets-container p {
     font-size: 1.1em;
-    color: #555;
+    color: #fff; /* Ensure text is visible on black background */
     text-align: center;
-}
-
-#tweets-container p.error {
-    color: #d9534f;
-    font-weight: bold;
-}
-
-#tweets-container p.loading {
-    color: #5bc0de;
 }
 
 /* --- Academic Services Image Styling --- */
-.academic-services-image {
-    text-align: center;
-    margin-top: 20px;
-}
-
 .academic-services-image img {
-    max-width: 100%;
-    height: auto;
+    border: 2px solid #fff; /* Add white border for contrast */
     border-radius: 8px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
-
-.academic-services-image img:hover {
-    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* --- Ordered List Styling --- */
-.profile-content ol {
-    padding-left: 20px; /* Indent the list */
-    margin-top: 10px;
-}
-
 .profile-content li {
     margin-bottom: 10px;
     line-height: 1.6;
+    color: #fff; /* White text for visibility */
 }
 
 /* --- Responsive Styles --- */
@@ -193,14 +150,7 @@ h1 {
     .tab-content {
         max-width: 100%;
     }
-
-    .tabs {
-        max-width: 100%; /* Allows tabs to use full width on smaller screens */
-    }
-
-    .academic-services-image img {
-        width: 100%;
-    }
 }
+
 
 
