@@ -27,7 +27,7 @@ h1 {
     height: auto;
 }
 
-/* --- GitHub Link Styling (Option 1) --- */
+/* --- GitHub Link Styling --- */
 .github-link {
     text-align: center;
     margin-bottom: 20px;
@@ -166,6 +166,17 @@ h1 {
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* --- Ordered List Styling --- */
+.profile-content ol {
+    padding-left: 20px; /* Indent the list */
+    margin-top: 10px;
+}
+
+.profile-content li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
 /* --- Responsive Styles --- */
 @media (max-width: 768px) {
     body {
@@ -191,4 +202,5 @@ h1 {
         width: 100%;
     }
 }
+
 
