@@ -17,22 +17,22 @@
 
     <!-- Navigation for Tabs -->
     <div class="tabs" role="tablist">
-        <button class="tab-button" role="tab" aria-selected="true" aria-controls="tweets-tab" id="tab-tweets" onclick="showTab('tweets-tab')">Tweets</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="venues-tab" id="tab-venues" onclick="showTab('venues-tab')">Community Venues</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="people-tab" id="tab-people" onclick="showTab('people-tab')">People Involved</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="services-tab" id="tab-services" onclick="showTab('services-tab')">Paid-for Academic Services</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="blog-tab" id="tab-blog" onclick="showTab('blog-tab')">The Differential Ontology Blog</button>
-        <button class="tab-button" role="tab" aria-selected="false" aria-controls="resources-tab" id="tab-resources" onclick="showTab('resources-tab')">Community Involvement Resources</button>
+        <button class="tab-button" role="tab" aria-selected="true" onclick="showTab('tweets-tab')">Tweets</button>
+        <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('venues-tab')">Community Venues</button>
+        <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('people-tab')">People Involved</button>
+        <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('services-tab')">Paid-for Academic Services</button>
+        <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('blog-tab')">The Differential Ontology Blog</button>
+        <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('resources-tab')">Community Involvement Resources</button>
     </div>
 
     <!-- Tweets Tab Content -->
-    <div id="tweets-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-tweets" style="display: block;">
+    <div id="tweets-tab" class="tab-content" style="display: block;">
         <h2>#OpenSourceHumanities Tweets</h2>
-        <div id="tweets-container" aria-live="polite" aria-label="Recent tweets about #OpenSourceHumanities"></div>
+        <div id="tweets-container" aria-live="polite"></div>
     </div>
 
     <!-- Community Venues Tab Content -->
-    <div id="venues-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-venues" style="display: none;">
+    <div id="venues-tab" class="tab-content" style="display: none;">
         <h2>OpenSourceHumanities Community Venues</h2>
         <ul>
             <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank" rel="noopener noreferrer">Acid Horizon on TuneIn</a></li>
@@ -44,7 +44,7 @@
     </div>
 
     <!-- People Tab Content -->
-    <div id="people-tab" class="tab-content" role="tabpanel" aria-labelledby="tab-people" style="display: none;">
+    <div id="people-tab" class="tab-content" style="display: none;">
         <h2>People</h2>
         <ul>
             <li><a href="https://x.com/Qtempor/with_replies" target="_blank" rel="noopener noreferrer">@Qtempor</a></li>
@@ -53,8 +53,51 @@
         </ul>
     </div>
 
-    <!-- Other Tabs (Omitted for Brevity) -->
-    <!-- Paid-for Academic Services, Blog, Resources -->
+    <!-- Paid-for Academic Services Tab Content -->
+    <div id="services-tab" class="tab-content" style="display: none;">
+        <h2>Paid-for Academic Services</h2>
+        <ul>
+            <li><a href="#" onclick="showProfile('dAllesZermalmer')">Profile of @dAllesZermalmer</a></li>
+        </ul>
+        <div id="profile-dAllesZermalmer" class="profile-content" style="display: none;">
+            <h3>Nimrod Shavit</h3>
+            <div class="academic-services-image">
+                <img src="Images/GebK7kjWEAAK3Fy.jpeg" alt="Academic Services Image">
+            </div>
+            <p><strong>Bio:</strong> Communication scholar specializing in qualitative methods and epistemology. Current research focuses on causal "Why" questions in communication and grounding ethnographic interpretation in differential ontology.</p>
+            <p><strong>Services Offered:</strong></p>
+            <ol>
+                <li><em>Dissertation Hacking:</em> Get personalized guidance to complete your dissertation with a <em>warranty</em>.</li>
+            </ol>
+            <p><strong>CV:</strong> <a href="https://u.pcloud.link/publink/show?code=XZt5L55ZS0wGR8RV03pHMbArUfbro8e7HVYy" target="_blank" rel="noopener noreferrer">View CV</a></p>
+        </div>
+    </div>
+
+    <!-- The Differential Ontology Blog Tab Content -->
+    <div id="blog-tab" class="tab-content" style="display: none;">
+        <h2>The Differential Ontology Blog</h2>
+        <div class="sub-tabs">
+            <button class="sub-tab-button" onclick="showSubTab('power-relations')">Power Relations</button>
+        </div>
+        <div id="power-relations" class="sub-tab-content" style="display: none;">
+            <h3>Power Relations</h3>
+            <p><strong>First Blog Post:</strong> <a href="https://u.pcloud.link/publink/show?code=XZBAf05ZNHf6RFgaxDbGlBvb2i0jgQig7NKV" target="_blank" rel="noopener noreferrer">Read PDF</a></p>
+        </div>
+    </div>
+
+    <!-- Community Involvement Resources Tab Content -->
+    <div id="resources-tab" class="tab-content" style="display: none;">
+        <h2>Community Involvement Resources</h2>
+        <ul>
+            <li><a href="https://github.com/nimshav/Open-Source-Humanities" target="_blank" rel="noopener noreferrer">View #OpenSourceHumanities on GitHub</a></li>
+            <li>
+                <p>
+                    This <a href="https://www.youtube.com/watch?v=mJ-qvsxPHpY" target="_blank" rel="noopener noreferrer">tutorial for dummies</a> is a recommended way to learn Git and GitHub. Real dummies -- like me -- can use the 
+                    <a href="https://desktop.github.com/download/" target="_blank" rel="noopener noreferrer">GitHub application for desktop</a>.
+                </p>
+            </li>
+        </ul>
+    </div>
 
     <noscript>
         <p>JavaScript is required to load the content of this page. Please enable JavaScript in your browser settings.</p>
@@ -65,21 +108,37 @@
             const tabContents = document.querySelectorAll('.tab-content');
             const tabButtons = document.querySelectorAll('.tab-button');
 
-            // Hide all tab contents and update button states
-            tabContents.forEach(content => (content.style.display = 'none'));
+            // Hide all tab contents
+            tabContents.forEach(content => content.style.display = 'none');
+
+            // Remove aria-selected from all buttons
             tabButtons.forEach(button => button.setAttribute('aria-selected', 'false'));
 
-            // Show the selected tab and update its button state
+            // Show the selected tab and mark the button as selected
             const activeTab = document.getElementById(tabId);
-            const activeButton = document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`);
-            if (activeTab && activeButton) {
-                activeTab.style.display = 'block';
-                activeButton.setAttribute('aria-selected', 'true');
-            }
+            if (activeTab) activeTab.style.display = 'block';
+
+            const activeButton = [...tabButtons].find(button => button.onclick.toString().includes(tabId));
+            if (activeButton) activeButton.setAttribute('aria-selected', 'true');
+        }
+
+        function showProfile(profileId) {
+            const profiles = document.querySelectorAll('.profile-content');
+            profiles.forEach(profile => profile.style.display = 'none');
+            const activeProfile = document.getElementById(`profile-${profileId}`);
+            if (activeProfile) activeProfile.style.display = 'block';
+        }
+
+        function showSubTab(subTabId) {
+            const subTabContents = document.querySelectorAll('.sub-tab-content');
+            subTabContents.forEach(content => content.style.display = 'none');
+            const activeSubTab = document.getElementById(subTabId);
+            if (activeSubTab) activeSubTab.style.display = 'block';
         }
     </script>
 </body>
 </html>
+
 
 
 
