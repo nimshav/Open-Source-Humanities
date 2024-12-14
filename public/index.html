@@ -17,7 +17,7 @@
 
     <!-- Navigation for Tabs -->
     <div class="tabs" role="tablist">
-        <button class="tab-button" role="tab" aria-selected="true" onclick="showTab('tweets-tab')">Tweets</button>
+        <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('tweets-tab')">Tweets</button>
         <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('venues-tab')">Community Venues</button>
         <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('people-tab')">People Involved</button>
         <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('services-tab')">Academic Services</button>
@@ -25,13 +25,12 @@
         <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('resources-tab')">Community Involvement Resources</button>
     </div>
 
-    <!-- Tweets Tab Content -->
-    <div id="tweets-tab" class="tab-content" style="display: none;">
+    <!-- Tab Contents -->
+    <div id="tweets-tab" class="tab-content">
         <h2 style="text-align: center;">#OpenSourceHumanities Tweets</h2>
         <div id="tweets-container" aria-live="polite"></div>
     </div>
 
-    <!-- Community Venues Tab Content -->
     <div id="venues-tab" class="tab-content" style="display: none;">
         <h2 style="text-align: center;">Community Venues</h2>
         <div class="community-image">
@@ -43,99 +42,51 @@
             <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank" rel="noopener noreferrer">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
             <li><a href="https://lacancircle.com.au/" target="_blank" rel="noopener noreferrer">The Lacan Circle of Australia</a></li>
             <li><a href="https://podcasts.apple.com/us/podcast/moral-minority/id1728182343" target="_blank" rel="noopener noreferrer">The Moral Minority Podcast</a></li>
-            <li><a href="https://x.com/yung_lacanian" target="_blank" rel="noopener noreferrer">Շђє קгєคςђєг คՇ คггคקєєภ on Twitter</a></li>
-            <li><a href="https://nimshav.github.io/EthnoComm-Repository/" target="_blank" rel="noopener noreferrer">The Ethnography of Communication Bibliography</a></li>
-            <li><a href="https://shirtifiedhustler.creator-spring.com/" target="_blank" rel="noopener noreferrer">Alien Perspective Store</a></li>
-            <li><a href="https://x.com/HaimTor/status/1858962240701165574" target="_blank" rel="noopener noreferrer">Holistic Health by Haim Tor</a></li>
         </ul>
     </div>
 
-    <!-- People Tab Content -->
     <div id="people-tab" class="tab-content" style="display: none;">
         <h2 style="text-align: center;">People</h2>
         <ul>
             <li><a href="https://x.com/Qtempor/with_replies" target="_blank" rel="noopener noreferrer">@Qtempor</a></li>
             <li><a href="https://x.com/dAllesZermalmer" target="_blank" rel="noopener noreferrer">@dAllesZermalmer</a></li>
-            <li><a href="https://haifa.academia.edu/NimrodShavit" target="_blank" rel="noopener noreferrer">The Boss</a></li>
         </ul>
     </div>
 
-    <!-- Academic Services Tab Content -->
     <div id="services-tab" class="tab-content" style="display: none;">
         <h2 style="text-align: center;">Academic Services</h2>
         <ul>
             <li><a href="#" onclick="showProfile('dAllesZermalmer')">@dAllesZermalmer</a></li>
         </ul>
-
-        <!-- Nimrod Shavit's Profile -->
         <div id="profile-dAllesZermalmer" class="academic-profile" style="display: none;">
             <h3 style="text-align: center;">Nimrod Shavit</h3>
-            <p style="text-align: center;"><a href="https://u.pcloud.link/publink/show?code=XZt5L55ZS0wGR8RV03pHMbArUfbro8e7HVYy" target="_blank" rel="noopener noreferrer" style="color: #d2691e;">View CV</a></p>
-            <p><strong>Bio:</strong> Communication scholar specializing in qualitative methods and epistemology. Current research focuses on causal "Why" questions in communication and grounding ethnographic interpretation in differential ontology.</p>
-            <p><strong>Services Offered:</strong></p>
-            <ul>
-                <li><strong>Academic Hacking:</strong> Assistance for individuals genuinely stuck in their dissertation. Specializing in humanities and social sciences.</li>
-                <br>
-                <li><strong>Editorial Board for Sale:</strong> High-quality writing projects for professional scholars and academics. Expertise across humanities and social sciences.</li>
-            </ul>
-            <div class="academic-services-image">
-                <img src="Images/GebK7kjWEAAK3Fy.jpeg" alt="Academic Services Image">
-            </div>
+            <p style="text-align: center;"><a href="https://u.pcloud.link/publink/show?code=XZt5L55ZS0wGR8RV03pHMbArUfbro8e7HVYy" target="_blank">View CV</a></p>
         </div>
     </div>
 
-    <!-- The Differential Ontology Blog Tab Content -->
     <div id="blog-tab" class="tab-content" style="display: none;">
         <h2 style="text-align: center;">The Differential Ontology Blog</h2>
-        <p style="text-align: center;">
-            <a href="./posts/power-relations.html" target="_blank" rel="noopener noreferrer" style="color: #d2691e;">Read Posts on Power Relations</a>
-        </p>
     </div>
 
     <script>
         function showTab(tabId) {
-            const tabContents = document.querySelectorAll('.tab-content');
-            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
 
-            // Hide all tab contents
-            tabContents.forEach(content => {
-                content.style.display = 'none';
-            });
+            tabs.forEach(tab => tab.style.display = 'none');
+            buttons.forEach(button => button.setAttribute('aria-selected', 'false'));
 
-            // Remove aria-selected from all buttons
-            tabButtons.forEach(button => {
-                button.setAttribute('aria-selected', 'false');
-            });
-
-            // Show the selected tab and mark the button as selected
-            const activeTab = document.getElementById(tabId);
-            if (activeTab) {
-                activeTab.style.display = 'block';
-            }
-
-            const activeButton = [...tabButtons].find(button => button.onclick.toString().includes(tabId));
-            if (activeButton) {
-                activeButton.setAttribute('aria-selected', 'true');
-            }
+            document.getElementById(tabId).style.display = 'block';
+            const button = Array.from(buttons).find(btn => btn.onclick.toString().includes(tabId));
+            if (button) button.setAttribute('aria-selected', 'true');
         }
 
-        function showProfile(profileId) {
-            const profiles = document.querySelectorAll('.academic-profile');
-            profiles.forEach(profile => {
-                profile.style.display = 'none';
-            });
-            const activeProfile = document.getElementById(`profile-${profileId}`);
-            if (activeProfile) {
-                activeProfile.style.display = 'block';
-            }
-        }
-
-        // Ensure first tab is visible by default
+        document.querySelector('.tab-button').setAttribute('aria-selected', 'true');
         document.getElementById('tweets-tab').style.display = 'block';
-        document.querySelector('.tab-button[onclick*="tweets-tab"]').setAttribute('aria-selected', 'true');
     </script>
 </body>
 </html>
+
 
 
 
