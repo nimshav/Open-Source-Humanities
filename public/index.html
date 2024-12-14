@@ -75,7 +75,7 @@
             <img src="Images/GdYKnvwXMAA-JSJ.jpeg" alt="Differential Ontology Image">
         </div>
         <p style="text-align: center;">
-            <a href="./posts/power-relations.html" target="_blank" rel="noopener noreferrer" style="color: #d2691e;">Read Posts on Power Relations</a>
+            <a href="./posts/power-relations.pdf" target="_blank" rel="noopener noreferrer" style="color: #d2691e;">Power in Deleuze</a>
         </p>
     </div>
 
@@ -108,31 +108,15 @@
         // Ensure Tweets tab is active on page load
         document.getElementById('tweets-tab').style.display = 'block';
         document.querySelector('.tab-button[onclick*="tweets-tab"]').setAttribute('aria-selected', 'true');
+
+        function showProfile(profileId) {
+            const profiles = document.querySelectorAll('.academic-profile');
+            profiles.forEach(profile => profile.style.display = 'none');
+            const activeProfile = document.getElementById(`profile-${profileId}`);
+            if (activeProfile) {
+                activeProfile.style.display = 'block';
+            }
+        }
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
