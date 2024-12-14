@@ -45,7 +45,6 @@
             <li><a href="https://shirtifiedhustler.creator-spring.com/" target="_blank" rel="noopener noreferrer">Alien Perspective Store</a></li>
             <li><a href="https://x.com/HaimTor/status/1858962240701165574" target="_blank" rel="noopener noreferrer">Holistic Health by Haim Tor</a></li>
         </ul>
-        <!-- Corrected Image Path -->
         <div class="community-image">
             <img src="Images/GdYKnvwXMAA-JSJ.jpeg" alt="Community Venues Image">
         </div>
@@ -53,42 +52,45 @@
 
     <!-- The Differential Ontology Blog Tab Content -->
     <div id="blog-tab" class="tab-content" style="display: none;">
-        <h2>The Differential Ontology Blog</h2>
-
-        <!-- Image above the Power Relations section -->
+        <h2 style="text-align: center;">The Differential Ontology Blog</h2>
         <div class="ontology-image">
             <img src="Images/GdYKnvwXMAA-JSJ.jpeg" alt="Differential Ontology Image">
         </div>
-
-        <!-- Sub-tabs for the blog -->
         <div class="sub-tabs">
             <button class="sub-tab-button" onclick="showSubTab('power-relations')">Power Relations</button>
         </div>
-
-        <!-- Power Relations Section -->
         <div id="power-relations" class="sub-tab-content" style="display: none;">
             <h3>Power Relations</h3>
             <p><strong>First Blog Post:</strong> <a href="https://u.pcloud.link/publink/show?code=XZBAf05ZNHf6RFgaxDbGlBvb2i0jgQig7NKV" target="_blank" rel="noopener noreferrer">Read PDF</a></p>
         </div>
-
-        <!-- Video section -->
-        <div class="differential-ontology-video">
-            <video controls>
-                <source src="Images/Heidegger.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
     </div>
 
-    <!-- JavaScript for Tabs -->
+    <!-- Community Involvement Resources Tab Content -->
+    <div id="resources-tab" class="tab-content" style="display: none;">
+        <h2>Community Involvement Resources</h2>
+        <ul>
+            <li><a href="https://github.com/nimshav/Open-Source-Humanities" target="_blank" rel="noopener noreferrer">View #OpenSourceHumanities on GitHub</a></li>
+            <li>
+                <p>
+                    This <a href="https://www.youtube.com/watch?v=mJ-qvsxPHpY" target="_blank" rel="noopener noreferrer">tutorial for dummies</a> is a recommended way to learn Git and GitHub. Real dummies -- like me -- can use the 
+                    <a href="https://desktop.github.com/download/" target="_blank" rel="noopener noreferrer">GitHub application for desktop</a>.
+                </p>
+            </li>
+        </ul>
+    </div>
+
     <script>
         function showTab(tabId) {
             const tabContents = document.querySelectorAll('.tab-content');
             const tabButtons = document.querySelectorAll('.tab-button');
 
+            // Hide all tab contents
             tabContents.forEach(content => content.style.display = 'none');
+
+            // Remove aria-selected from all buttons
             tabButtons.forEach(button => button.setAttribute('aria-selected', 'false'));
 
+            // Show the selected tab and mark the button as selected
             const activeTab = document.getElementById(tabId);
             if (activeTab) activeTab.style.display = 'block';
 
@@ -99,14 +101,38 @@
         function showSubTab(subTabId) {
             const subTabContents = document.querySelectorAll('.sub-tab-content');
             subTabContents.forEach(content => content.style.display = 'none');
-
             const activeSubTab = document.getElementById(subTabId);
             if (activeSubTab) activeSubTab.style.display = 'block';
         }
     </script>
 
     <style>
-        img, video {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tab-content {
+            max-width: 800px;
+            background-color: #111;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        img {
             max-width: 100%;
             height: auto;
             display: block;
@@ -114,9 +140,19 @@
             border-radius: 10px;
             border: 2px solid #fff;
         }
+
+        .sub-tabs {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .sub-tab-content {
+            margin-top: 20px;
+        }
     </style>
 </body>
 </html>
+
 
 
 
