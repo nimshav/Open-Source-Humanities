@@ -98,24 +98,36 @@
             const tabButtons = document.querySelectorAll('.tab-button');
 
             // Hide all tab contents
-            tabContents.forEach(content => content.style.display = 'none');
+            tabContents.forEach(content => {
+                content.style.display = 'none';
+            });
 
             // Remove aria-selected from all buttons
-            tabButtons.forEach(button => button.setAttribute('aria-selected', 'false'));
+            tabButtons.forEach(button => {
+                button.setAttribute('aria-selected', 'false');
+            });
 
             // Show the selected tab and mark the button as selected
             const activeTab = document.getElementById(tabId);
-            if (activeTab) activeTab.style.display = 'block';
+            if (activeTab) {
+                activeTab.style.display = 'block';
+            }
 
             const activeButton = [...tabButtons].find(button => button.onclick.toString().includes(tabId));
-            if (activeButton) activeButton.setAttribute('aria-selected', 'true');
+            if (activeButton) {
+                activeButton.setAttribute('aria-selected', 'true');
+            }
         }
 
         function showProfile(profileId) {
             const profiles = document.querySelectorAll('.academic-profile');
-            profiles.forEach(profile => profile.style.display = 'none');
+            profiles.forEach(profile => {
+                profile.style.display = 'none';
+            });
             const activeProfile = document.getElementById(`profile-${profileId}`);
-            if (activeProfile) activeProfile.style.display = 'block';
+            if (activeProfile) {
+                activeProfile.style.display = 'block';
+            }
         }
 
         // Ensure first tab is visible by default
@@ -124,6 +136,7 @@
     </script>
 </body>
 </html>
+
 
 
 
