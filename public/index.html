@@ -117,9 +117,14 @@
             const activeProfile = document.getElementById(`profile-${profileId}`);
             if (activeProfile) activeProfile.style.display = 'block';
         }
+
+        // Ensure first tab is visible by default
+        document.getElementById('tweets-tab').style.display = 'block';
+        document.querySelector('.tab-button[onclick*="tweets-tab"]').setAttribute('aria-selected', 'true');
     </script>
 </body>
 </html>
+
 
 
 
