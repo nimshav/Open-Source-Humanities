@@ -17,7 +17,7 @@
 
     <!-- Navigation for Tabs -->
     <div class="tabs" role="tablist">
-        <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('tweets-tab')">Tweets</button>
+        <button class="tab-button" role="tab" aria-selected="true" onclick="showTab('tweets-tab')">Tweets</button>
         <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('venues-tab')">Community Venues</button>
         <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('people-tab')">People Involved</button>
         <button class="tab-button" role="tab" aria-selected="false" onclick="showTab('services-tab')">Academic Services</button>
@@ -66,6 +66,12 @@
 
     <div id="blog-tab" class="tab-content" style="display: none;">
         <h2 style="text-align: center;">The Differential Ontology Blog</h2>
+        <p>Content for the Differential Ontology Blog goes here.</p>
+    </div>
+
+    <div id="resources-tab" class="tab-content" style="display: none;">
+        <h2 style="text-align: center;">Community Involvement Resources</h2>
+        <p>Content for Community Involvement Resources goes here.</p>
     </div>
 
     <script>
@@ -81,11 +87,13 @@
             if (button) button.setAttribute('aria-selected', 'true');
         }
 
-        document.querySelector('.tab-button').setAttribute('aria-selected', 'true');
+        // Ensure Tweets tab is active on page load
         document.getElementById('tweets-tab').style.display = 'block';
+        document.querySelector('.tab-button[onclick*="tweets-tab"]').setAttribute('aria-selected', 'true');
     </script>
 </body>
 </html>
+
 
 
 
