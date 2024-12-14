@@ -12,6 +12,16 @@ body {
     min-height: 100vh;
 }
 
+/* General Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px; /* Optional: For aesthetics */
+    object-fit: contain; /* Ensures images fit within their parent containers */
+}
+
 h1 {
     text-align: center;
     margin-bottom: 20px;
