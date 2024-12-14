@@ -31,21 +31,24 @@
         <div id="tweets-container" aria-live="polite"></div>
     </div>
 
-<!-- Community Venues Tab Content -->
-<div id="venues-tab" class="tab-content" style="display: none;">
-    <h2>OpenSourceHumanities Community Venues</h2>
-    <ul>
-        <li><a href="https://x.com/DeleuzeForYou" target="_blank" rel="noopener noreferrer">Gilles Deleuze For You on Twitter</a></li>
-        <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank" rel="noopener noreferrer">Acid Horizon on TuneIn</a></li>
-        <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank" rel="noopener noreferrer">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
-        <li><a href="https://lacancircle.com.au/" target="_blank" rel="noopener noreferrer">The Lacan Circle of Australia</a></li>
-        <li><a href="https://podcasts.apple.com/us/podcast/moral-minority/id1728182343" target="_blank" rel="noopener noreferrer">The Moral Minority Podcast</a></li>
-        <li><a href="https://x.com/yung_lacanian" target="_blank" rel="noopener noreferrer">Շђє קгєคςђєг คՇ คггคкєєภ on Twitter</a></li>
-        <li><a href="https://nimshav.github.io/EthnoComm-Repository/" target="_blank" rel="noopener noreferrer">The Ethnography of Communication Bibliography</a></li>
-        <li><a href="https://shirtifiedhustler.creator-spring.com/" target="_blank" rel="noopener noreferrer">Alien Perspective Store</a></li>
-        <li><a href="https://x.com/HaimTor/status/1858962240701165574" target="_blank" rel="noopener noreferrer">Holistic Health by Haim Tor</a></li>
-    </ul>
-</div>
+    <!-- Community Venues Tab Content -->
+    <div id="venues-tab" class="tab-content" style="display: none;">
+        <h2>OpenSourceHumanities Community Venues</h2>
+        <ul>
+            <li><a href="https://x.com/DeleuzeForYou" target="_blank" rel="noopener noreferrer">Gilles Deleuze For You on Twitter</a></li>
+            <li><a href="https://tunein.com/podcasts/Philosophy-Podcasts/Acid-Horizon-p1323450/" target="_blank" rel="noopener noreferrer">Acid Horizon on TuneIn</a></li>
+            <li><a href="https://soundcloud.com/podcast-co-coopercherry" target="_blank" rel="noopener noreferrer">Mechanic Unconscious Happy Hour on SoundCloud</a></li>
+            <li><a href="https://lacancircle.com.au/" target="_blank" rel="noopener noreferrer">The Lacan Circle of Australia</a></li>
+            <li><a href="https://podcasts.apple.com/us/podcast/moral-minority/id1728182343" target="_blank" rel="noopener noreferrer">The Moral Minority Podcast</a></li>
+            <li><a href="https://x.com/yung_lacanian" target="_blank" rel="noopener noreferrer">Շђє קгєคςђєг คՇ คггคкєєภ on Twitter</a></li>
+            <li><a href="https://nimshav.github.io/EthnoComm-Repository/" target="_blank" rel="noopener noreferrer">The Ethnography of Communication Bibliography</a></li>
+            <li><a href="https://shirtifiedhustler.creator-spring.com/" target="_blank" rel="noopener noreferrer">Alien Perspective Store</a></li>
+            <li><a href="https://x.com/HaimTor/status/1858962240701165574" target="_blank" rel="noopener noreferrer">Holistic Health by Haim Tor</a></li>
+        </ul>
+        <div class="community-image">
+            <img src="public/Images/GdYKnvwXMAA-JSJ.jpeg" alt="Community Venues Image">
+        </div>
+    </div>
 
     <!-- People Tab Content -->
     <div id="people-tab" class="tab-content" style="display: none;">
@@ -73,10 +76,8 @@
                     <em>Dissertation Hacking:</em> Get personalized guidance to complete your dissertation with a <em>warranty</em>.
                 </li>
             </ol>
-            <!-- Image placed after the service description -->
             <div class="academic-services-image">
                 <img src="Images/GebK7kjWEAAK3Fy.jpeg" alt="Academic Services Image">
-                <!-- Contact Me Link -->
                 <p><a href="mailto:nshavit@icloud.com" style="color: #d2691e; text-decoration: none;">Contact Me</a></p>
             </div>
         </div>
@@ -91,6 +92,12 @@
         <div id="power-relations" class="sub-tab-content" style="display: none;">
             <h3>Power Relations</h3>
             <p><strong>First Blog Post:</strong> <a href="https://u.pcloud.link/publink/show?code=XZBAf05ZNHf6RFgaxDbGlBvb2i0jgQig7NKV" target="_blank" rel="noopener noreferrer">Read PDF</a></p>
+        </div>
+        <div class="differential-ontology-video">
+            <video controls>
+                <source src="public/Images/Heidegger.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
 
@@ -117,13 +124,9 @@
             const tabContents = document.querySelectorAll('.tab-content');
             const tabButtons = document.querySelectorAll('.tab-button');
 
-            // Hide all tab contents
             tabContents.forEach(content => content.style.display = 'none');
-
-            // Remove aria-selected from all buttons
             tabButtons.forEach(button => button.setAttribute('aria-selected', 'false'));
 
-            // Show the selected tab and mark the button as selected
             const activeTab = document.getElementById(tabId);
             if (activeTab) activeTab.style.display = 'block';
 
@@ -146,17 +149,56 @@
         }
     </script>
 
-    <!-- CSS Update for Responsive Image -->
     <style>
-    .academic-services-image img {
-        max-width: 100%; /* Ensures image fits within container */
-        height: auto;
-        border: 2px solid #fff; /* Add white border for contrast */
-        border-radius: 8px;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .tab-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #111;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            border: 2px solid #fff;
+        }
+
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </body>
 </html>
+
 
 
 
