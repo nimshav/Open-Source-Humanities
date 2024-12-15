@@ -62,4 +62,4 @@ Step-by-step guide to install and set up your project locally:
 ---
 
 ### Contact
-Write me directly at: nimshav@icloud.com.
+Write me directly at: nshavit@icloud.com.
