@@ -17,7 +17,7 @@ A more complete guide will be developed in accordance with community needs and r
 ---
 
 ## About
-This project collects and displays tweets published under the Twitter/X hashtag #OpenSourceHumanities with the ultimate goal of providing an alternative, open-source academy in accordance with the anarchist principle of "doocracy" -- the government of those who do.
+The goal of this project is to provide an alternative, open-source academy in accordance with the anarchist principle of "doocracy" -- the government of those who do.
 
 ---
 
